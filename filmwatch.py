@@ -31,3 +31,12 @@ def edit_film():
             save_watchlist(watchlist)
             return
     print(f'"{title}" not found in watchlist')
+
+def remove_film():
+    title = input('Enter the title of the film to remove: ')
+    for film in watchlist:
+        if film['title'] == title:
+            watchlist.remove(film)
+            save_watchlist(watchlist)
+            return
+    print(f'"{title}" not found in watchlist')
