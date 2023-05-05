@@ -20,6 +20,17 @@ This is a simple terminal app that was contructed using Python. By using the jso
 ## **Features**
 /
 ## **Implementation Plan**
+
+In order to facilitate the planning and execution of this application, I opted to employ a Trello Board as a tool for monitoring the specific tasks necessary for the development of each feature. These tasks have been arranged in a checklist format within a card designated for each of the four features. Within these cards, a due date has been assigned.
+<br>
+
+![alt_text](./docs/trello_1.png)
+![alt_text](./docs/trello_2.png)
+![alt_text](./docs/trello_3.png)
+![alt_text](./docs/trello_4.png)
+![alt_text](./docs/trello_5.png)
+![alt_text](./docs/trello_6.png)
+
 /
 ## **Help Documentation**
 
