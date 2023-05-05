@@ -16,7 +16,13 @@ This is a simple terminal app that was contructed using Python. By using the jso
 </ol>
 
 ## **Style Guide**
-/
+To construct the app, PEP 8 style conventions was primarily utilised. Here are some of the specific style choices that were made:
+* Indentation: Four spaces for indentation, which is the standard recommended by PEP 8.
+* Naming conventions: PEP 8 naming conventions for variables, functions, and arguments. Specifically, snake_case for variables and functions, and used descriptive names that are easy to read and understand.
+* Line length: Line length under 79 characters WAS USED as recommended by PEP 8, except for the docstrings which can be longer.
+* Comments: Comments were included to explain the purpose and functionality of each function.
+* Blank lines: Blank lines between function definitions and between logical blocks of code were used to improve readability.
+
 ## **Features**
 /
 ## **Implementation Plan**
