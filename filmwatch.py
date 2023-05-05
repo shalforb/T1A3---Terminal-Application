@@ -21,3 +21,13 @@ def add_film():
     release_date = input('Enter the release date of the film: ')
     watchlist.append({'title': title, 'genre': genre, 'release_date': release_date})
     save_watchlist(watchlist)
+
+def edit_film():
+    title = input('Enter the title of the film to edit: ')
+    for film in watchlist:
+        if film['title'] == title:
+            film['genre'] = input('Enter the new genre of the film: ')
+            film['release_date'] = input('Enter the new release date of the film: ')
+            save_watchlist(watchlist)
+            return
+    print(f'"{title}" not found in watchlist')
