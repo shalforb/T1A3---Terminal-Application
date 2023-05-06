@@ -17,7 +17,19 @@ def save_watchlist(watchlist):
     with open(WATCHLIST_FILE, 'w') as f:
         json.dump(watchlist, f, indent=2)
 
+# Function to load the watched list from a JSON file
+def load_watched():
+    try:
+        with open(WATCHED_FILE, 'r') as f:
+            watched = json.load(f)
+    except FileNotFoundError:
+        watched = []
+    return watched
 
+# Function to save the watched list to a JSON file
+def save_watched(watched):
+    with open(WATCHED_FILE, 'w') as f:
+        json.dump(watched, f, indent=2)
 
 # Function to add a film to the watchlist
 def add_film():
@@ -73,9 +85,23 @@ def print_release_date():
     for film in sorted(watchlist, key=lambda x: x['release_date']):
         print(f"{film['title']} ({film['genre']}, {film['release_date']})")
 
-#Call the load_watchlist function and assign the result to the watchlist variable
-watchlist = load_watchlist()
+def mark_watched():
+    global watchlist # define the watchlist variable as a global variable
+    title = input('Enter the title of the film to mark as watched: ')
+    for film in watchlist:
+        if film['title'] == title:
+            watchlist.remove(film)
+            watched.append(film)
+            save_watchlist(watchlist)
+            save_watched(watched)
+            return
+    print(f'"{title}" not found in watchlist')
 
+#Call the functions
+watchlist = load_watchlist()
+watched_list = load_watched_list()
+
+#Main program loop
 while True:
     print('Welcome to the FilmApp')
     print('-----------------------------')
@@ -103,6 +129,8 @@ while True:
         print_genre(genre)
     elif choice == '6':
         print_release_date()
+    elif choice == '7':
+        mark_watched()
     elif choice == '8':
         print('Goodbye!')
         break
