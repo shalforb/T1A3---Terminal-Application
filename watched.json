@@ -1,21 +1,17 @@
 [
   {
-    "title": "Dracula",
-    "genre": "Horror",
-    "release_date": "1932"
-  },
-  {
     "title": "Batman",
     "genre": "Action",
     "release_date": 1989,
-    "rating": 5
+    "rating": 4,
+    "date": "04-04-22"
   },
   {
     "title": "Barbie",
     "genre": "Comedy",
-    "release_date": "2023",
-    "date": "06-05-23",
-    "rating": 4
+    "release_date": 2023,
+    "date": "05-05-23",
+    "rating": 5
   },
   {
     "title": "Evil Dead Rise",
