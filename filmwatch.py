@@ -37,12 +37,12 @@ def save_watched(watched):
         json.dump(watched, f, indent=2)
 
 def search_film():
-    title = input('Enter the title of the film to search: ')
+    title = input("\nEnter the title of the film to search: ")
     results = ia.search_movie(title)
 
     # Check if any results were found
     if not results:
-        print(f'"{title}" not found on IMDb')
+        print(f'"\n{title}" not found on IMDb')
         return
 
     # Print the details of the first result
@@ -54,7 +54,7 @@ def search_film():
     print(f'Title: {title}\nGenre: {genre}\nRelease Date: {release_date}')
 
     # Prompt user to add the movie to their watchlist
-    add_to_watchlist = input('Would you like to add this movie to your watchlist? (yes/no) ')
+    add_to_watchlist = input('\nWould you like to add this movie to your watchlist? (yes/no) ')
     if add_to_watchlist.lower() == 'yes':
         # Add movie details to JSON file
         with open('watchlist.json', 'a') as f:
@@ -64,21 +64,22 @@ def search_film():
 # Function to add a film to the watchlist
 def add_film():
     global watchlist # define the watchlist variable as a global variable
-    title = input('Enter the title of the film: ')
-    genre = input('Enter the genre of the film: ')
-    release_date = input('Enter the release date of the film: ')
+    title = input('\nEnter the title of the film: ')
+    genre = input('\nEnter the genre of the film: ')
+    release_date = input('\nEnter the release date of the film: ')
+    release_date = int(release_date)
     watchlist.append({'title': title, 'genre': genre, 'release_date': release_date})
     save_watchlist(watchlist)
 
 
 # Function to edit a film in the watchlist
 def edit_film():
-    global watchlist # define the watchlist variable as a global variable
+    global watchlist
     title = input('Enter the title of the film to edit: ')
     for film in watchlist:
         if film['title'] == title:
             film['genre'] = input('Enter the new genre of the film: ')
-            film['release_date'] = input('Enter the new release date of the film: ')
+            film['release_date'] = int(input('Enter the new release date of the film: '))
             save_watchlist(watchlist)
             return
     print(f'"{title}" not found in watchlist')
@@ -86,7 +87,8 @@ def edit_film():
 # Function to remove a film from the watchlist
 def remove_film():
     global watchlist # define the watchlist variable as a global variable
-    title = input('Enter the title of the film to remove: ')
+    print_watchlist()
+    title = input('\nEnter the title of the film to remove: ')
     for film in watchlist:
         if film['title'] == title:
             watchlist.remove(film)
@@ -97,7 +99,7 @@ def remove_film():
 # Function to print the watchlist
 def print_watchlist():
     global watchlist # define the watchlist variable as a global variable
-    print('Watchlist:')
+    print('\nWatchlist:')
     table = PrettyTable()
     table.field_names = ["Title", "Genre", "Release Date"]
     for film in watchlist:
@@ -118,27 +120,26 @@ def print_genre(genre):
 
 # Function to print films by release date
 def print_release_date():
-    global watchlist  # define the watchlist variable as a global variable
-    table = PrettyTable(['Title', 'Genre', 'Release Date'])
-    table.align['Title'] = 'l'
-    table.align['Genre'] = 'l'
-    table.align['Release Date'] = 'r'
-    table.title = "Watchlist (sorted by release date)"
-    for film in sorted(watchlist, key=lambda x: x['release_date']):
-        table.add_row([film['title'], film['genre'], film['release_date']])
-    print(table)
+    global watchlist
+    sorted_watchlist = sorted(watchlist, key=lambda x: x['release_date'] if isinstance(x['release_date'], int) else 0)
+    table = PrettyTable()
+    table.field_names = ["Title", "Release Year"]
+    for film in sorted_watchlist:
+        if isinstance(film['release_date'], int):
+            table.add_row([film['title'], film['release_date']])
+    print("\n" + str(table))
 
 # Function to mark a film as watched
 
 def mark_watched():
     global watchlist  # define the watchlist variable as a global variable
-    title = input('Enter the title of the film to mark as watched: ')
+    title = input('\nEnter the title of the film to mark as watched: ')
     for film in watchlist:
         if film['title'] == title:
             watchlist.remove(film)
-            date_str = input('Enter the date (DD-MM-YY) you watched the film: ')
+            date_str = input('\nEnter the date (DD-MM-YY) you watched the film: ')
             date = datetime.strptime(date_str, '%d-%m-%y')
-            rating = int(input('Enter a rating from 1-5: '))
+            rating = int(input('\nEnter a rating from 1-5: '))
             film['date'] = date.strftime('%d-%m-%y')
             film['rating'] = rating
             watched.append(film)
@@ -151,7 +152,7 @@ def mark_watched():
 
 def print_watched_list():
     watched = load_watched()
-    print('Watched List:')
+    print('\nWatched List:')
     table = PrettyTable()
     table.field_names = ["Title", "Genre", "Release Date", "Date Watched", "Rating"]
     for movie in watched:
@@ -170,7 +171,7 @@ def main():
     watched = load_watched()
 
     while True:
-        print("====================================================================================================================")
+        print("\n====================================================================================================================")
         print("=  _______  __   __      .___  ___. .___________..______          ___       ______  __  ___  _______ .______       =")
         print("= |   ____||  | |  |     |   \/   | |           ||   _  \        /   \     /      ||  |/  / |   ____||   _  \      =")
         print("= |  |__   |  | |  |     |  \  /  | `---|  |----`|  |_)  |      /  ^  \   |  ,----'|  '  /  |  |__   |  |_)  |     =")
@@ -179,15 +180,15 @@ def main():
         print("= |__|     |__| |_______||__|  |__|     |__|     | _| `._____/__/     \__\ \______||__|\__\ |_______|| _| `._____| =")
         print("====================================================================================================================")
         print("\nWelcome to FilmTracker! Make a selection from the menu below:")
-        print("\n1. I'd like to add a film to my watchlist")
-        print("2. I'd like to log a film I watched")
+        print("\n1. I'd like to access my watchlist")
+        print("2. I'd like to log a film I've watched")
         print("3. That'll do, pig.")
 
 
         choice = input("\nEnter your choice (1-3): ")
         if choice == '1':
             print("\n==========================")
-            print("= Add a Film to Watchlist =")
+            print("=     Your Watchlist     =")
             print("==========================")
             print("\n1. Search for a film")
             print("2. Enter film details manually")
@@ -198,7 +199,7 @@ def main():
             print("7. Print films by release date")
             print("8. E.T phone home")
 
-            sub_choice = input("Enter your choice (1-8): ")
+            sub_choice = input("\nEnter your choice (1-8): ")
             if sub_choice == '1':
                 search_film()
             elif sub_choice == '2':
@@ -210,7 +211,7 @@ def main():
             elif sub_choice == '5':
                 print_watchlist()
             elif sub_choice == '6':
-                genre = input("Enter genre to filter by: ")
+                genre = input("\nEnter genre to filter by: ")
                 print_genre(genre)
             elif sub_choice == '7':
                 print_release_date()
@@ -229,6 +230,7 @@ def main():
 
             sub_choice = input("\nEnter your choice (1-3): ")
             if sub_choice == '1':
+                print_watchlist()
                 mark_watched()
             elif sub_choice == '2':
                 print_watched_list()
