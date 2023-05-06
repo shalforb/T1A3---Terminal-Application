@@ -1,4 +1,5 @@
 import json
+from prettytable import PrettyTable
 
 WATCHLIST_FILE = 'watchlist.json'
 WATCHED_FILE = 'watched.json'
@@ -67,23 +68,35 @@ def remove_film():
 def print_watchlist():
     global watchlist # define the watchlist variable as a global variable
     print('Watchlist:')
+    table = PrettyTable()
+    table.field_names = ["Title", "Genre", "Release Date"]
     for film in watchlist:
-        print(f"{film['title']} ({film['genre']}, {film['release_date']})")
+        table.add_row([film['title'], film['genre'], film['release_date']])
+    print(table)
 
 # Function to print films by genre
 def print_genre(genre):
-    global watchlist # define the watchlist variable as a global variable
-    print(f'Watchlist ({genre}):')
+    global watchlist  # define the watchlist variable as a global variable
+    table = PrettyTable(['Title', 'Release Date'])
+    table.align['Title'] = 'l'
+    table.align['Release Date'] = 'r'
+    table.title = f"Watchlist ({genre})"
     for film in watchlist:
         if film['genre'] == genre:
-            print(f"{film['title']} ({film['release_date']})")
+            table.add_row([film['title'], film['release_date']])
+    print(table)
 
 # Function to print films by release date
 def print_release_date():
-    global watchlist # define the watchlist variable as a global variable
-    print('Watchlist (sorted by release date):')
+    global watchlist  # define the watchlist variable as a global variable
+    table = PrettyTable(['Title', 'Genre', 'Release Date'])
+    table.align['Title'] = 'l'
+    table.align['Genre'] = 'l'
+    table.align['Release Date'] = 'r'
+    table.title = "Watchlist (sorted by release date)"
     for film in sorted(watchlist, key=lambda x: x['release_date']):
-        print(f"{film['title']} ({film['genre']}, {film['release_date']})")
+        table.add_row([film['title'], film['genre'], film['release_date']])
+    print(table)
 
 def mark_watched():
     global watchlist # define the watchlist variable as a global variable
@@ -99,7 +112,7 @@ def mark_watched():
 
 #Call the functions
 watchlist = load_watchlist()
-watched_list = load_watched_list()
+watched = load_watched()
 
 #Main program loop
 while True:

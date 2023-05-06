@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Dracula",
+    "genre": "Horror",
+    "release_date": "1932"
+  },
+  {
+    "title": "Infinity Pool",
+    "genre": "Horror",
+    "release_date": "2022"
+  },
+  {
+    "title": "Underworld",
+    "genre": "Fantasy",
+    "release_date": "2003"
+  },
+  {
+    "title": "Pulp Fiction",
+    "genre": "Crime",
+    "release_date": "1994"
+  },
+  {
+    "title": "Airplane!",
+    "genre": "Comedy",
+    "release_date": "1980"
+  }
+]
