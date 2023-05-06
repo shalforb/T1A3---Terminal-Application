@@ -2,6 +2,7 @@ import json
 
 WATCHLIST_FILE = 'watchlist.json'
 WATCHED_FILE = 'watched.json'
+watchlist = []
 
 def load_watchlist():
     try:
@@ -16,6 +17,7 @@ def save_watchlist(watchlist):
         json.dump(watchlist, f, indent=2)
 
 def add_film():
+    global watchlist # define the watchlist variable as a global variable
     title = input('Enter the title of the film: ')
     genre = input('Enter the genre of the film: ')
     release_date = input('Enter the release date of the film: ')
@@ -23,6 +25,7 @@ def add_film():
     save_watchlist(watchlist)
 
 def edit_film():
+    global watchlist # define the watchlist variable as a global variable
     title = input('Enter the title of the film to edit: ')
     for film in watchlist:
         if film['title'] == title:
@@ -33,6 +36,7 @@ def edit_film():
     print(f'"{title}" not found in watchlist')
 
 def remove_film():
+    global watchlist # define the watchlist variable as a global variable
     title = input('Enter the title of the film to remove: ')
     for film in watchlist:
         if film['title'] == title:
