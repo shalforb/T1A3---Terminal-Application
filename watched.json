@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Dracula",
+    "genre": "Horror",
+    "release_date": "1932"
+  },
+  {
+    "title": "Batman",
+    "genre": "Action",
+    "release_date": 1989,
+    "rating": 5
+  },
+  {
+    "title": "Barbie",
+    "genre": "Comedy",
+    "release_date": "2023",
+    "date": "06-05-23",
+    "rating": 4
+  }
+]

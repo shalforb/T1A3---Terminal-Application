@@ -1,6 +1,7 @@
 import json
 from prettytable import PrettyTable
 from imdb import Cinemagoer
+from datetime import datetime
 
 WATCHLIST_FILE = 'watchlist.json'
 WATCHED_FILE = 'watched.json'
@@ -127,16 +128,35 @@ def print_release_date():
     print(table)
 
 def mark_watched():
-    global watchlist # define the watchlist variable as a global variable
+    global watchlist  # define the watchlist variable as a global variable
     title = input('Enter the title of the film to mark as watched: ')
     for film in watchlist:
         if film['title'] == title:
             watchlist.remove(film)
+            date_str = input('Enter the date (DD-MM-YY) you watched the film: ')
+            date = datetime.strptime(date_str, '%d-%m-%y')
+            rating = int(input('Enter a rating from 1-5: '))
+            film['date'] = date.strftime('%d-%m-%y')
+            film['rating'] = rating
             watched.append(film)
             save_watchlist(watchlist)
             save_watched(watched)
             return
     print(f'"{title}" not found in watchlist')
+
+def print_watched_list():
+    watched = load_watched()
+    print('Watched List:')
+    table = PrettyTable()
+    table.field_names = ["Title", "Genre", "Release Date", "Date Watched", "Rating"]
+    for movie in watched:
+        title = movie.get('title', '')
+        genre = movie.get('genre', '')
+        release_date = movie.get('release_date', '')
+        date_watched = movie.get('date', '')
+        rating = movie.get('rating', '')
+        table.add_row([title, genre, release_date, date_watched, rating])
+    print(table)
 
 #Call the functions
 watchlist = load_watchlist()
@@ -154,9 +174,10 @@ while True:
     print('6. Print by genre')
     print('7. Print by release date')
     print('8. Mark film as watched')
-    print('9. Exit')
+    print('9. Print watched list')
+    print('10. Exit')
 
-    choice = input('Enter your choice (1-9): ')
+    choice = input('Enter your choice (1-10): ')
 
     if choice == '1':
         search_film()
@@ -176,6 +197,8 @@ while True:
     elif choice == '8':
         mark_watched()
     elif choice == '9':
+        print_watched_list()
+    elif choice == '10':
         print('Goodbye!')
         break
     
