@@ -1,4 +1,4 @@
-# **FilmApp**
+# **FilmTracker**
 ## [GitHub Repo](https://github.com/shalforb/T1A3---Terminal-Application)
 ## [Source Control](https://github.com/shalforb/T1A3---Terminal-Application/commits/master)
 ## [Trello Board](https://trello.com/invite/b/TCKk92x8/ATTI3e965815939b6d437ced36e0051ec8e80CCD745E/filmapp)
@@ -6,7 +6,7 @@
 <br>
 
 ## **App Description & Purpose**
-This is a simple terminal app that was contructed using Python. By using the json file handling module, the app will allow users to add and keep track of films that they intend to watch. Users will have access to a variety of main functions including:
+This is a simple terminal app that was contructed using Python. By using the JSON file handling module, the app will allow users to add and keep track of films that they intend to watch. Users will have access to a variety of main functions including:
 <ol>
 <li>Searching for films utilising the cinemagoer package, and optionally adding them to the watchlist
 <li>Adding films to their watchlist manually
@@ -56,7 +56,7 @@ While printing the watchlist, it was important to maintain a high level of reada
 <br>
 
 ### Feature 8 - Marking a film as watched & printing the watchlist
-When a user wants to mark a film they have seen in their watchlist, they can do so using this feature. This function will then remove the specific film from the watchlist, and then append it to a seperate file named *watched*. Much like the watchlist file, this can be printed and displayed in a readable ASCII table.
+When a user wants to mark a film they have seen in their watchlist, they can do so using this feature. This function will then remove the specific film from the watchlist, and then append it to a seperate file named *watched*. While logging a watched film, the program will prompt the user to enter a date (DD-MM-YY) to mark the date in which the film was watched - the [datetime](https://docs.python.org/3/library/datetime.html) package is used to store this value as datetime data. It will also prompt the user to rate the film on a scale of 1-5 which will also be stored in the file. Much like the watchlist file, this can be printed and displayed in a readable ASCII table.
 
 <br>
 
@@ -74,8 +74,16 @@ As I began to work through the plan, I realised it was easier to run and test th
 ![alt_text](./docs/trello_5.png)
 ![alt_text](./docs/trello_6.png)
 
-/
+<br>
+
 ## **Help Documentation**
 
+<br>
+
+## **References**
+
+1. IMDbPY. (n.d.). Latest documentation. Retrieved from https://readthedocs.org/projects/imdbpy/downloads/pdf/latest/
+
+2. PrettyTable 2.2.0. (2021). Retrieved from https://pypi.org/project/prettytable/
 
 
