@@ -234,71 +234,77 @@ def main():
 
         choice = input("\nEnter your choice (1-3): ")
         if choice == '1':
-            print("\n==========================")
-            print("=     Your Watchlist     =")
-            print("==========================")
-            print("\n1. Search for a film")
-            print("2. Enter film details manually")
-            print("3. Edit a film in the watchlist")
-            print("4. Remove a film from the watchlist")
-            print("5. Print watchlist")
-            print("6. Print films by genre")
-            print("7. Print films by release date")
-            print("8. E.T phone home")
+            while True:
+                print("\n==========================")
+                print("=     Your Watchlist     =")
+                print("==========================")
+                print("\nWhat would you like to do?")
+                print("\n1. Search for a film")
+                print("2. Enter film details manually")
+                print("3. Edit a film in the watchlist")
+                print("4. Remove a film from the watchlist")
+                print("5. Print watchlist")
+                print("6. Print films by genre")
+                print("7. Print films by release date")
+                print("8. There's no place like home")
 
-            sub_choice = input("\nEnter your choice (1-8): ")
-            if sub_choice == '1':
-                search_film()
-            elif sub_choice == '2':
-                add_film()
-            elif sub_choice == '3':
-                edit_film()
-            elif sub_choice == '4':
-                remove_film()
-            elif sub_choice == '5':
-                print_watchlist()
-            elif sub_choice == '6':
-                genre = input("\nEnter genre to filter by: ")
-                print_genre(genre)
-            elif sub_choice == '7':
-                print_release_date()
-            elif sub_choice == '8':
-                main()
-            else:
-                print("Invalid choice, please try again")
+                sub_choice = input("\nEnter your choice (1-8): ")
+                if sub_choice == '1':
+                    search_film()
+                elif sub_choice == '2':
+                    add_film()
+                elif sub_choice == '3':
+                    print_watchlist()
+                    edit_film()
+                elif sub_choice == '4':
+                    print_watchlist()
+                    remove_film()
+                elif sub_choice == '5':
+                    print_watchlist()
+                elif sub_choice == '6':
+                    genre = input("\nEnter genre to filter by: ")
+                    print_genre(genre)
+                elif sub_choice == '7':
+                    print_release_date()
+                elif sub_choice == '8':
+                    break
+                else:
+                    print("\nYou chose...poorly. Please try again.")
 
         elif choice == '2':
-            print("\n===========================")
-            print("=    Movies you've seen   =")
-            print("===========================")
-            print("\n1. Mark a film as watched")
-            print("2. Print watched list")
-            print("3. Edit a film in the watched list")
-            print("4. Remove a film from the watched list")
-            print("5. E.T Phone home")
+            while True:
+                print("\n===========================")
+                print("=    Movies you've seen   =")
+                print("===========================")
+                print("\n What would you like to do?")
+                print("\n1. Mark a film as watched")
+                print("2. Print watched list")
+                print("3. Edit a film in the watched list")
+                print("4. Remove a film from the watched list")
+                print("5. E.T. Phone home")
 
-            sub_choice = input("\nEnter your choice (1-5): ")
-            if sub_choice == '1':
-                print_watchlist()
-                mark_watched()
-            elif sub_choice == '2':
-                print_watched_list()
-            elif sub_choice == '3':
-                print_watched_list()
-                edit_watched_film()
-            elif sub_choice == '4':
-                print_watched_list
-                remove_watched_film()
-            elif sub_choice == '5':
-                main()
-            else:
-                print("Invalid choice, please try again")
+                sub_choice = input("\nEnter your choice (1-5): ")
+                if sub_choice == '1':
+                    print_watchlist()
+                    mark_watched()
+                elif sub_choice == '2':
+                    print_watched_list()
+                elif sub_choice == '3':
+                    print_watched_list()
+                    edit_watched_film()
+                elif sub_choice == '4':
+                    print_watched_list
+                    remove_watched_film()
+                elif sub_choice == '5':
+                    break
+                else:
+                    print("\nYou chose...poorly. Please try again.")
         elif choice == '3':
-            print("\nGoodbye!\n")
+            print("\nSee you at the movies.\n")
             sys.exit()  # terminate program
         
         else:
-            print("Invalid choice, please try again")
+            print("\nYou chose...poorly. Please try again.")
 
 if __name__ == '__main__':
     main()
