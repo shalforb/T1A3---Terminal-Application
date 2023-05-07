@@ -84,7 +84,8 @@ def add_film():
 
 def edit_film():
     global watchlist
-    title = input('Enter the title of the film to edit: ')
+    print_watchlist()
+    title = input('\nEnter the title of the film to edit: ')
     for film in watchlist:
         if film['title'] == title:
             film['title'] = input('Enter the new title of the film: ')
@@ -147,6 +148,7 @@ def print_release_date():
 
 def mark_watched():
     global watchlist  # define the watchlist variable as a global variable
+    print_watched_list()
     title = input('\nEnter the title of the film to mark as watched: ')
     for film in watchlist:
         if film['title'] == title:
@@ -195,6 +197,7 @@ def remove_watched_film():
 
 def edit_watched_film():
     global watched
+    print_watched_list()
     title = input('Enter the title of the film to edit: ')
     for film in watched:
         if film['title'] == title:
@@ -254,10 +257,8 @@ def main():
                 elif sub_choice == '2':
                     add_film()
                 elif sub_choice == '3':
-                    print_watchlist()
                     edit_film()
                 elif sub_choice == '4':
-                    print_watchlist()
                     remove_film()
                 elif sub_choice == '5':
                     print_watchlist()
@@ -285,15 +286,12 @@ def main():
 
                 sub_choice = input("\nEnter your choice (1-5): ")
                 if sub_choice == '1':
-                    print_watchlist()
                     mark_watched()
                 elif sub_choice == '2':
                     print_watched_list()
                 elif sub_choice == '3':
-                    print_watched_list()
                     edit_watched_film()
                 elif sub_choice == '4':
-                    print_watched_list
                     remove_watched_film()
                 elif sub_choice == '5':
                     break

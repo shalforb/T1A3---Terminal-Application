@@ -1,0 +1,7 @@
+cinemagoer==2023.5.1
+greenlet==2.0.2
+lxml==4.9.2
+prettytable==3.7.0
+SQLAlchemy==2.0.12
+typing_extensions==4.5.0
+wcwidth==0.2.6
