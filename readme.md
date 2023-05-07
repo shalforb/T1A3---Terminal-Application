@@ -2,6 +2,7 @@
 ## [GitHub Repo](https://github.com/shalforb/T1A3---Terminal-Application)
 ## [Source Control](https://github.com/shalforb/T1A3---Terminal-Application/commits/master)
 ## [Trello Board](https://trello.com/invite/b/TCKk92x8/ATTI3e965815939b6d437ced36e0051ec8e80CCD745E/filmapp)
+## [Presentation](https://youtu.be/d1wijl66hGY)
 
 <br>
 
