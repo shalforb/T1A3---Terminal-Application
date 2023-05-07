@@ -91,6 +91,77 @@ As I began to work through the plan, many of the tasks became prioritized differ
 
 <br>
 
+## **Testing**
+
+<br>
+
+### Testing the Add/remove film functions
+
+<br>
+
+```
+
+import pytest
+import json
+from filmtracker import load_watchlist, save_watchlist, add_film, remove_film
+
+WATCHLIST_FILE = 'watchlist.json'
+
+def test_add_film():
+    # Create an empty watchlist file
+    with open(WATCHLIST_FILE, 'w') as f:
+        json.dump([], f)
+
+    # Add a film to the watchlist
+    add_film()
+    watchlist = load_watchlist()
+    assert len(watchlist) == 1
+    assert watchlist[0]['title'] == 'Test Movie'
+    assert watchlist[0]['genre'] == 'Action'
+    assert watchlist[0]['release_date'] == 2023
+
+    # Add another film to the watchlist
+    add_film()
+    watchlist = load_watchlist()
+    assert len(watchlist) == 2
+
+def test_remove_film():
+    # Create a watchlist file with two films
+    with open(WATCHLIST_FILE, 'w') as f:
+        json.dump([
+            {
+                'title': 'Test Movie 1',
+                'genre': 'Action',
+                'release_date': 2023
+            },
+            {
+                'title': 'Test Movie 2',
+                'genre': 'Comedy',
+                'release_date': 2022
+            }
+        ], f)
+
+    # Remove a film from the watchlist
+    remove_film()
+    watchlist = load_watchlist()
+    assert len(watchlist) == 1
+    assert watchlist[0]['title'] == 'Test Movie 2'
+    assert watchlist[0]['genre'] == 'Comedy'
+    assert watchlist[0]['release_date'] == 2022
+
+    # Try to remove a film that doesn't exist
+    with pytest.raises(SystemExit):
+        remove_film()
+```
+
+These two pytest tests are designed to test the add_film() and remove_film() functions.
+
+The test_add_film() function first creates an empty watchlist file by opening watchlist.json in write mode and writing an empty list to it using the json.dump() function. The function then calls the add_film() function, which prompts the user for details about a film and adds it to the watchlist file. The function then loads the watchlist file using the load_watchlist() function and checks that the length of the list is 1, and that the details of the added film match the expected values. The function then repeats the process by calling add_film() again and checks that the length of the list is now 2. This test is checking that the add_film() function correctly adds films to the watchlist and that the watchlist file is updated with the correct data.
+
+The test_remove_film() function first creates a watchlist file by opening watchlist.json in write mode and writing a list of two films to it using the json.dump() function. The function then calls the remove_film() function, which prompts the user to select a film to remove from the watchlist and removes it from the file. The function then loads the watchlist file using the load_watchlist() function and checks that the length of the list is 1, and that the details of the remaining film match the expected values. The function then tries to remove a film that doesn't exist in the watchlist and checks that a SystemExit exception is raised. This test is checking that the remove_film() function correctly removes films from the watchlist and that it handles errors correctly.
+
+<br>
+
 ## **Help Documentation**
 
 <br>
