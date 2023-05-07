@@ -94,6 +94,92 @@ As I began to work through the plan, many of the tasks became prioritized differ
 
 <br>
 
+### Instructions to assist with downloading and running FilmTracker.
+
+<br>
+
+### **System Requirements:**
+
+<br>
+
+FilmTracker is a Python program that requires Python 3. You can check if you have Python installed by entering the following command in your terminal: python --version
+
+If you do not have Python installed, you can visit [Python's official website](https://www.python.org/downloads/)
+
+<br>
+
+### **Downloading and Running FilmTracker:**
+
+<br>
+
+### **Option One:**
+
+<br>
+
+- Make sure you have Python 3 installed on your computer. You can check which version you have with the following command in your terminal.
+```
+python3 --version
+```
+
+- If you don't have Python 3 installed, you can get it from here: https://www.python.org/downloads/
+
+- Open the terminal and go to the desired location on your computer. Create a directory and initialize a repository in that directory with the command:
+```
+git init
+```
+
+- From within your directory, clone the FilmTracker repository with the command:
+```
+git clone https://github.com/shalforb/T1A3---Terminal-Application
+```
+
+- Use the cd command to enter the directory titled **T1A3---Terminal-Application**
+
+- Initialize FilmTracker by running the bash script called setup_filmtracker.sh with the command:
+```
+bash setup_filmtracker.sh
+```
+
+- Launch FilmTracker by running the bash script called run_filmtracker.sh with the command:
+```
+bash run_filmtracker.sh
+```
+
+
+<br>
+
+### **Option Two:**
+
+<br>
+
+
+- Go to https://github.com/shalforb/T1A3---Terminal-Application and click the green button that says <> Code, then click Download ZIP.
+
+- Open the downloaded ZIP file and extract the directory.
+
+- Open your terminal and navigate to the extracted directory (titled T1A3---Terminal-Application-master).
+
+- WInitialize FilmTracker by running the bash script called setup_filmtracker.sh with the command:
+```
+bash setup_filmtracker.sh
+```
+
+- Launch FilmTracker by running the bash script called run_filmtracker.sh with the command: 
+```
+bash run_filmtracker.sh
+```
+
+When you run the executables, FilmTracker will automatically:
+
+- Check if you have Python 3 installed, and if not, provide you with instructions on how to install it.
+- Create a virtual environment for you.
+- Activate the virtual environment for you.
+- Install all required dependencies you need to run the app. This is done from the requirements.txt file.
+- Run the application for you.
+- Finally, deactivate the virtual environment.
+
+<br>
+
 ## **References**
 
 1. IMDbPY. (n.d.). Latest documentation. Retrieved from https://readthedocs.org/projects/imdbpy/downloads/pdf/latest/

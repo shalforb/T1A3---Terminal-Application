@@ -71,7 +71,6 @@ def search_film():
 # Function to add a film to the watchlist
 
 def add_film():
-    global watchlist # define the watchlist variable as a global variable
     title = input('\nEnter the title of the film: ')
     genre = input('\nEnter the genre of the film: ')
     while True:
@@ -87,7 +86,6 @@ def add_film():
 # Function to edit a film in the watchlist
 
 def edit_film():
-    global watchlist
     print_watchlist()
     title = input('\nEnter the title of the film to edit: ')
     for film in watchlist:
@@ -107,7 +105,6 @@ def edit_film():
 # Function to remove a film from the watchlist
 
 def remove_film():
-    global watchlist # define the watchlist variable as a global variable
     print_watchlist()
     title = input('\nEnter the title of the film to remove: ')
     for film in watchlist:
@@ -120,7 +117,6 @@ def remove_film():
 # Function to print the watchlist
 
 def print_watchlist():
-    global watchlist # define the watchlist variable as a global variable
     print('\nWatchlist:')
     table = PrettyTable()
     table.field_names = ["Title", "Genre", "Release Date"]
@@ -131,7 +127,6 @@ def print_watchlist():
 # Function to print films by genre
 
 def print_genre(genre):
-    global watchlist  # define the watchlist variable as a global variable
     table = PrettyTable(['Title', 'Release Date'])
     table.align['Title'] = 'l'
     table.align['Release Date'] = 'r'
@@ -144,7 +139,6 @@ def print_genre(genre):
 # Function to print films by release date
 
 def print_release_date():
-    global watchlist
     sorted_watchlist = sorted(watchlist, key=lambda x: x['release_date'] if isinstance(x['release_date'], int) else 0)
     table = PrettyTable()
     table.field_names = ["Title", "Release Year"]
@@ -156,7 +150,6 @@ def print_release_date():
 # Function to mark a film as watched
 
 def mark_watched():
-    global watchlist  # define the watchlist variable as a global variable
     print_watched_list()
     title = input('\nEnter the title of the film to mark as watched: ')
     for film in watchlist:
@@ -192,7 +185,6 @@ def print_watched_list():
 # Function to remove a film from the watched list
 
 def remove_watched_film():
-    global watched # define the watchlist variable as a global variable
     print_watched_list()
     title = input('\nEnter the title of the film to remove: ')
     for film in watched:
@@ -205,7 +197,6 @@ def remove_watched_film():
 # Function to edit a film in the watched list
 
 def edit_watched_film():
-    global watched
     print_watched_list()
     title = input('Enter the title of the film to edit: ')
     for film in watched:
