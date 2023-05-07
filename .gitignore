@@ -1,3 +1,5 @@
 watched.json
 watchlist.json
 cinemagoer.py
+.DS_Store
+venv

@@ -62,9 +62,10 @@ When a user wants to mark a film they have seen in their watchlist, they can do 
 
 ## **Implementation Plan**
 
-In order to facilitate the planning and execution of this application, I opted to employ a Trello Board as a tool for monitoring the specific tasks necessary for the development of each feature. These tasks have been arranged in a checklist format within a card designated for each of the four features. Within these cards, a due date has been assigned. 
+In order to facilitate the planning and execution of this application, I opted to employ a Trello Board as a tool for monitoring the specific tasks necessary for the development of each feature. These tasks have been arranged in a checklist format within a card designated for each of the four features. Within these cards, a due date and appropriate labels have been assigned. 
 
-As I began to work through the plan, I realised it was easier to run and test the code if I moved the main menu feature forward (initially planned as one of the last tasks) so I could test the program more thoroughly as I implemented more features.
+### Intitial Trello Plan:
+
 <br>
 
 ![alt_text](./docs/trello_1.png)
@@ -73,6 +74,19 @@ As I began to work through the plan, I realised it was easier to run and test th
 ![alt_text](./docs/trello_4.png)
 ![alt_text](./docs/trello_5.png)
 ![alt_text](./docs/trello_6.png)
+
+<br>
+As I began to work through the plan, many of the tasks became prioritized differently; for example I realised it was easier to run and test the code if I moved the main menu feature forward (initially planned as one of the last tasks) so I could test the program more thoroughly as I implemented more features. New cards were created as I began to develop a better understanding of what the app could potentially be. A 'miscellaneous' card was created which allowed for random features that I knew had to be implemented that I did not consider before starting to develop the app. An 'optional' card was created so I could add inconsequential features that I could integrate if time allowed. If I ran into a major error that was proving extremely difficuly and time-consuming to debug, I added it to a seperate errors card. I also added seperate cards for when I discovered a package I wanted to integrate into the app.
+
+<br>
+
+### Final Trello Plan
+
+<br>
+
+![alt_text](./docs/trello_7.png)
+![alt_text](./docs/trello_8.png)
+![alt_text](./docs/trello_9.png)
 
 <br>
 
@@ -85,5 +99,7 @@ As I began to work through the plan, I realised it was easier to run and test th
 1. IMDbPY. (n.d.). Latest documentation. Retrieved from https://readthedocs.org/projects/imdbpy/downloads/pdf/latest/
 
 2. PrettyTable 2.2.0. (2021). Retrieved from https://pypi.org/project/prettytable/
+
+3. ‌peps.python.org. PEP 8 – Style Guide for Python Code | peps.python.org. Retrieved from: https://peps.python.org/pep-0008/.
 
 

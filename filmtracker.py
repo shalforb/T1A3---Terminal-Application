@@ -74,8 +74,12 @@ def add_film():
     global watchlist # define the watchlist variable as a global variable
     title = input('\nEnter the title of the film: ')
     genre = input('\nEnter the genre of the film: ')
-    release_date = input('\nEnter the release date of the film: ')
-    release_date = int(release_date)
+    while True:
+        try:
+            release_date = int(input('\nEnter the release date of the film: '))
+            break
+        except ValueError:
+            print("\nYou’re killin’ me, Smalls. I don't think that's a year. Please try again.")
     watchlist.append({'title': title, 'genre': genre, 'release_date': release_date})
     save_watchlist(watchlist)
 
@@ -88,9 +92,14 @@ def edit_film():
     title = input('\nEnter the title of the film to edit: ')
     for film in watchlist:
         if film['title'] == title:
-            film['title'] = input('Enter the new title of the film: ')
-            film['genre'] = input('Enter the new genre of the film: ')
-            film['release_date'] = int(input('Enter the new release date of the film: '))
+            film['title'] = input('\nEnter the new title of the film: ')
+            film['genre'] = input('\nEnter the new genre of the film: ')
+            while True:
+                try:
+                    film['release_date'] = int(input('\nEnter the new release date of the film: '))
+                    break
+                except ValueError:
+                    print("\nYou’re killin’ me, Smalls. I don't think that's a year. Please try again.")
             save_watchlist(watchlist)
             return
     print(f'"{title}" not found in watchlist')
